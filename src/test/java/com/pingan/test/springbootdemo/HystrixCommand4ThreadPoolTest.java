@@ -40,7 +40,7 @@ public class HystrixCommand4ThreadPoolTest extends HystrixCommand<String> {
 //        super(HystrixCommandGroupKey.Factory.asKey("ThreadPoolTestGroup"));
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("ThreadPoolTestGroup"))  
                 .andCommandKey(HystrixCommandKey.Factory.asKey("testCommandKey"))
-                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("ThreadPoolTest"))
+                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("ThreadPoolTest"))//通过andThreadPoolKey配置使用命名为ThreadPoolTest的线程池，实现与其他命名的线程池天然隔离
                 .andCommandPropertiesDefaults(
                 	HystrixCommandProperties.Setter()
                 		.withExecutionTimeoutInMilliseconds(5000)
