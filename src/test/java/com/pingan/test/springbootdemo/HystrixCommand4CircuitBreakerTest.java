@@ -48,8 +48,8 @@ public class HystrixCommand4CircuitBreakerTest extends HystrixCommand<String> {
                 .andCommandPropertiesDefaults(	// 配置熔断器
                 		HystrixCommandProperties.Setter()
                 		.withCircuitBreakerEnabled(true)
-                		.withCircuitBreakerRequestVolumeThreshold(3)
-                		.withCircuitBreakerErrorThresholdPercentage(80)
+                		.withCircuitBreakerRequestVolumeThreshold(3)//10s内请求数超过3个时熔断器，属于并发控制
+                		.withCircuitBreakerErrorThresholdPercentage(80)//错误比例>80%时开始熔断
 //                		.withCircuitBreakerForceOpen(true)	// 置为true时，所有请求都将被拒绝，直接到fallback
 //                		.withCircuitBreakerForceClosed(true)	// 置为true时，将忽略错误
 //                		.withExecutionIsolationStrategy(ExecutionIsolationStrategy.SEMAPHORE)	// 信号量隔离
